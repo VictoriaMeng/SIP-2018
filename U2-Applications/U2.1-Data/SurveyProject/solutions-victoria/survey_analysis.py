@@ -13,7 +13,7 @@ def unique_answers():
 
 def mar_or_dec(date):
     month = date.split("/")[0]
-    return month == "03" or month == "12"
+    return month in ["03", "12"]
 
 def mar_dec_birthdays():
     birthdays = [survey["birthday"] for survey in filedata if mar_or_dec(survey["birthday"])]
