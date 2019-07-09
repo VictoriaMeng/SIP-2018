@@ -19,6 +19,9 @@ def mar_dec_birthdays():
     birthdays = [survey["birthday"] for survey in filedata if mar_or_dec(survey["birthday"])]
     return len(birthdays)
 
-print(f"Average age of respondents: {average_age()}")
-print(f"Unique answers: {unique_answers()}")
-print(f"Mar/Dec birthdays: {mar_dec_birthdays()}")
+def run():
+    print(f"Average age of respondents: {average_age()}")
+    print(f"Unique answers: {unique_answers()}")
+    print(f"Mar/Dec birthdays: {mar_dec_birthdays()}")
+
+run()
