@@ -1,11 +1,7 @@
 import json
 
-f = open("survey_answers.json", "r")
-filedata = json.load(f)
-f.close()
-
-# with open('survey-answers.json', 'r') as f:
-#     filedata = json.load(f)
+with open('survey_answers.json', 'r') as f:
+    filedata = json.load(f)
 
 def average_age():
     ages = [int(survey["age"]) for survey in filedata]

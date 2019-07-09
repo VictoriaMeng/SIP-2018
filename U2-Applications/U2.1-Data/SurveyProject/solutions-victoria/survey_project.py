@@ -27,8 +27,20 @@ def show_quit_prompt():
 def quit_survey():
     return input() == 'n'
 
-again = True
-while again:
+def save_to_json():
+    with open("survey_answers.json", "w") as f:
+        f.write('[\n')
+        index = 0
+        for t in answers:
+            json.dump(t, f)
+            if (index < len(answers)-1):
+                f.write(',\n')
+            else:
+                f.write('\n')
+            index += 1
+        f.write(']')
+
+while True:
     survey = {}
     for q in questions:
         show_question(q)
@@ -36,19 +48,12 @@ while again:
     save_answer()
     show_quit_prompt()
     if quit_survey():
-        again = False
+        break
+        
+save_to_json()
 
-f = open("survey_answers.json", "w")
-f.write('[\n')
-index = 0
-for t in answers:
-    if (index < len(answers)-1):
-        json.dump(t, f)
-        f.write(',\n')
-    else:
-        json.dump(t, f)
-        f.write('\n')
-    index += 1
 
-f.write(']')
-f.close()
+#
+# f = open("survey_answers.json", "w")
+#
+# f.close()
